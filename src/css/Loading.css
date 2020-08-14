@@ -1,0 +1,39 @@
+.loading {
+	display: none;
+}
+.loading--active {
+	display: block;
+}
+.loading__piece {
+	margin: 30px auto 0 auto;
+	width: 90%;
+	position: relative;
+}
+.loading__piece:after {
+	content: '';
+	display: block;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	animation: loading 1s infinite;
+}
+.loading__image {
+	width: 100%;
+	height: 200px;
+    background-color: lightgrey;
+}
+.loading__line {
+	margin-top: 10px;
+	background-color: lightgrey;
+	width: 100%;
+	height: 4px;
+}
+
+@keyframes loading {
+  	100% {
+    	transform: translateX(100%);
+  	}
+}

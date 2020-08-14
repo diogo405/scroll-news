@@ -1,0 +1,13 @@
+.app {
+    background-color: var(--white);
+	height: 100%;
+	height: calc(100% - 50px);
+}
+.app__news {
+	display: flex;
+	height: calc(100% - var(--topBar));
+}
+
+.u__hidden {
+	display: none;
+}

@@ -1,0 +1,6 @@
+.mostsh {
+	width: 30%;
+	box-sizing: border-box;
+	border-right: 1px solid #444;
+	overflow: scroll;
+}

@@ -1,0 +1,6 @@
+.mostview {
+	width: 20%;
+	box-sizing: border-box;
+	border-right: 1px solid #444;
+	overflow: scroll;
+}

@@ -1,0 +1,19 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Heebo', sans-serif;
+	color: #444;
+	background-color: var(--red);
+}
+
+/* remove underline from links */
+a {
+    text-decoration: none;
+    color: #444;
+}
+
+#root {
+	height: 100%;
+}
