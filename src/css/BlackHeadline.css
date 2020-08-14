@@ -5,7 +5,7 @@
 	border-bottom: 4px solid var(--red);
 	text-decoration: none;
 }
-.blackh:nth-child(even) {
+.blackh:nth-child(odd) {
 	background-color: var(--white);
 }
 .blackh__header {
@@ -39,7 +39,7 @@
 	font-weight: 300;
 	margin-right: 10px;
 }
-.blackh:nth-child(even) .blackh__tag {
+.blackh:nth-child(odd) .blackh__tag {
 	color: var(--black);
 }
 .blackh__tag:first-child {

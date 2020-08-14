@@ -2,7 +2,7 @@
 	padding: 30px 0 10px 0;
 	border-top: 3px solid black;
 }
-.headf:first-child {
+.headf:first-of-type {
 	border-top: none;
 }
 .headf__image-cont {

@@ -2,7 +2,7 @@
 	padding: 20px 0 10px 20px;	
 	border-top: 3px solid black;
 }
-.smallp:first-child {
+.smallp:first-of-type {
 	border-top: none;
 }
 .smallp__header {
