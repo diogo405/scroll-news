@@ -32,7 +32,7 @@ class App extends React.Component {
         let mostEmailed = JSON.parse(localStorage.getItem('mostEmailed'))
         if (!mostEmailed) {
             console.log('Most emailed is not cached')
-            axios.get('https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=FbTc6EJsZEAnTTi9f6tdwWffGbDRw3IR')
+            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
                 .then(({data: dataEmailed}) => {
                     console.log('Most emailed fetched')
                     mostEmailed = dataEmailed.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
@@ -50,7 +50,7 @@ class App extends React.Component {
         let mostViewed = JSON.parse(localStorage.getItem('mostViewed'))
         if (!mostViewed) {
             console.log('Most viewed is not cached')
-            axios.get('https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=FbTc6EJsZEAnTTi9f6tdwWffGbDRw3IR')
+            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
                 .then(({data: dataViewed}) => {
                     console.log('Most viewed fetched')
                     mostViewed = dataViewed.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
@@ -68,7 +68,7 @@ class App extends React.Component {
         let mostShared = JSON.parse(localStorage.getItem('mostShared'))
         if (!mostShared) {
             console.log('Most shared is not cached')
-            axios.get('https://api.nytimes.com/svc/mostpopular/v2/shared/7.json?api-key=FbTc6EJsZEAnTTi9f6tdwWffGbDRw3IR')
+            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
                 .then(({data: dataShared}) => {
                     console.log('Most shared fetched')
                     mostShared = dataShared.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
