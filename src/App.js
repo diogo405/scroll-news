@@ -5,7 +5,6 @@ import TopBar from './components/TopBar.js'
 import MostShared from './components/MostShared.js'
 import MostViewed from './components/MostViewed.js'
 import MostEmailed from './components/MostEmailed.js'
-import Piece from './components/Piece.js'
 
 class App extends React.Component {
 
@@ -32,12 +31,11 @@ class App extends React.Component {
         let mostEmailed = JSON.parse(sessionStorage.getItem('mostEmailed'))
         if (!mostEmailed) {
             console.log('Most emailed is not cached')
-            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
-                .then(({data: dataEmailed}) => {
+            axios.get(`${process.env.REACT_APP_API_URL}/most-emailed`)
+                .then(({data}) => {
                     console.log('Most emailed fetched')
-                    mostEmailed = dataEmailed.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
-                    sessionStorage.setItem('mostEmailed', JSON.stringify(mostEmailed))
-                    this.setState({mostEmailed: mostEmailed, mostEmailedLoading: false})
+                    sessionStorage.setItem('mostEmailed', JSON.stringify(data.news))
+                    this.setState({mostEmailed: data.news, mostEmailedLoading: false})
                 })
         } else {
             console.log('Most emailed from cache')
@@ -50,12 +48,11 @@ class App extends React.Component {
         let mostViewed = JSON.parse(sessionStorage.getItem('mostViewed'))
         if (!mostViewed) {
             console.log('Most viewed is not cached')
-            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
-                .then(({data: dataViewed}) => {
+            axios.get(`${process.env.REACT_APP_API_URL}/most-viewed`)
+                .then(({data}) => {
                     console.log('Most viewed fetched')
-                    mostViewed = dataViewed.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
-                    sessionStorage.setItem('mostViewed', JSON.stringify(mostViewed))
-                    this.setState({mostViewed: mostViewed, mostViewedLoading: false})
+                    sessionStorage.setItem('mostViewed', JSON.stringify(data.news))
+                    this.setState({mostViewed: data.news, mostViewedLoading: false})
                 })
         } else {
             console.log('Most viewed from cache')
@@ -68,12 +65,11 @@ class App extends React.Component {
         let mostShared = JSON.parse(sessionStorage.getItem('mostShared'))
         if (!mostShared) {
             console.log('Most shared is not cached')
-            axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/7.json?api-key=${process.env.REACT_APP_NYT_KEY}`)
-                .then(({data: dataShared}) => {
+            axios.get(`${process.env.REACT_APP_API_URL}/most-shared`)
+                .then(({data}) => {
                     console.log('Most shared fetched')
-                    mostShared = dataShared.results.map(n => Piece.createPiece(n)).filter(n => n !== null)
-                    sessionStorage.setItem('mostShared', JSON.stringify(mostShared))
-                    this.setState({mostShared: mostShared, mostSharedLoading: false})
+                    sessionStorage.setItem('mostShared', JSON.stringify(data.news))
+                    this.setState({mostShared: data.news, mostSharedLoading: false})
                 })
         } else {
             console.log('Most shared from cache')
