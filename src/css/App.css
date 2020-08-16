@@ -11,3 +11,9 @@
 .u__hidden {
 	display: none;
 }
+
+@media (max-width: 768px) {
+	.app__news {
+		flex-direction: column;
+	}
+}

@@ -17,6 +17,7 @@
 	filter: grayscale(1);
 	margin-left: 20px;
 	margin-top: 20px;
+	align-self: flex-start;
 }
 .blackh__header-title {
 	font-family: 'Playfair Display', serif;
@@ -44,4 +45,10 @@
 }
 .blackh__tag:first-child {
 	margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+	.blackh__header-title {
+		font-size: 26px;
+	}
 }

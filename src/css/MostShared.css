@@ -4,3 +4,10 @@
 	border-right: 1px solid #444;
 	overflow: scroll;
 }
+
+@media (max-width: 768px) {
+	.mostsh {
+		width: 100%;
+		overflow: unset;
+	}
+}

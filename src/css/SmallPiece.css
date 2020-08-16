@@ -1,6 +1,7 @@
 .smallp {
 	padding: 20px 0 10px 20px;	
 	border-top: 3px solid black;
+	background-color: var(--white);
 }
 .smallp:first-of-type {
 	border-top: none;
