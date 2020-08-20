@@ -27,11 +27,13 @@ class App extends React.Component {
     }
 
     loadMostEmailed() {
+
+
         this.setState({mostEmailedLoading: true})
         let mostEmailed = JSON.parse(sessionStorage.getItem('mostEmailed'))
         if (!mostEmailed) {
             console.log('Most emailed is not cached')
-            axios.get(`${process.env.REACT_APP_API_URL}/most-emailed`)
+            axios.get(`${process.env.REACT_APP_API_URL}/get-news?type=emailed`)
                 .then(({data}) => {
                     console.log('Most emailed fetched')
                     sessionStorage.setItem('mostEmailed', JSON.stringify(data.news))
@@ -48,7 +50,7 @@ class App extends React.Component {
         let mostViewed = JSON.parse(sessionStorage.getItem('mostViewed'))
         if (!mostViewed) {
             console.log('Most viewed is not cached')
-            axios.get(`${process.env.REACT_APP_API_URL}/most-viewed`)
+            axios.get(`${process.env.REACT_APP_API_URL}/get-news?type=viewed`)
                 .then(({data}) => {
                     console.log('Most viewed fetched')
                     sessionStorage.setItem('mostViewed', JSON.stringify(data.news))
@@ -65,7 +67,7 @@ class App extends React.Component {
         let mostShared = JSON.parse(sessionStorage.getItem('mostShared'))
         if (!mostShared) {
             console.log('Most shared is not cached')
-            axios.get(`${process.env.REACT_APP_API_URL}/most-shared`)
+            axios.get(`${process.env.REACT_APP_API_URL}/get-news?type=shared`)
                 .then(({data}) => {
                     console.log('Most shared fetched')
                     sessionStorage.setItem('mostShared', JSON.stringify(data.news))
