@@ -1,4 +1,4 @@
-## Scroll News
+# Scroll News
 A news website that pulls data from NYT API.
 
 ## About
